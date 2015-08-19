@@ -1,0 +1,22 @@
+{
+    "name": "ygeorgiev/laravel-menu",
+    "description": "A menu generator for Laravel 5.0 +",
+    "require": {
+        "php": ">=5.4",
+        "illuminate/support": ">=5.0",
+        "illuminate/view": ">=5.0",
+        "laravelcollective/html": ">=5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yasen Georgiev",
+            "email": "work@ygeorgeiv.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "YGeorgiev\\Menu\\": "src"
+        }
+    }
+}
