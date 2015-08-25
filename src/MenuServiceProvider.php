@@ -2,6 +2,7 @@
 
 namespace YGeorgiev\Menu;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class MenuServiceProvider extends ServiceProvider {
@@ -37,11 +38,10 @@ class MenuServiceProvider extends ServiceProvider {
         ];
         AliasLoader::getInstance($aliases)->register();
 
-        $this->loadViewsFrom(__DIR__.'/src/views', self::$_packageName);
-        $this->mergeConfigFrom(__DIR__.'/src/config/config.php', self::$_packageName);
+        $this->loadViewsFrom(__DIR__.'/Application/views', self::$_packageName);
         $this->publishes([
-            __DIR__.'/src/config/config.php' => config_path(self::$_packageName.'.php'),
-            __DIR__.'/src/views' => base_path('resources/views/vendor/'.self::$_packageName)
+            __DIR__.'/Application/views' => base_path('resources/views/vendor/'.self::$_packageName),
+            __DIR__.'/Application/Support' => app_path('Support')
         ]);
 
         if(file_exists($supportFile = app_path('Support/Menu.php'))) {
