@@ -1,6 +1,6 @@
 <?php
 namespace YGeorgiev\Menu;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 
 /**
  * Class Menu
@@ -21,7 +21,7 @@ class Menu {
      */
     private $_menus = [];
 
-    public function __construct(View $view) {
+    public function __construct(ViewFactory $view) {
         $this->views = $view;
     }
 
