@@ -2,6 +2,8 @@
 
 namespace YGeorgiev\Menu;
 
+use App;
+
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
@@ -44,7 +46,7 @@ class MenuServiceProvider extends ServiceProvider {
             __DIR__.'/Application/Support' => app_path('Support')
         ]);
 
-        if(file_exists($supportFile = app_path('Support/Menu.php'))) {
+        if(!App::runningInConsole() && file_exists($supportFile = app_path('Support/Menu.php'))) {
             include_once $supportFile;
         }
     }
