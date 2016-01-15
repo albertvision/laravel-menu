@@ -90,13 +90,7 @@ class MenuItemTemplateReady {
      * @return bool
      */
     public function isActive() {
-        $pattern = $this->_item->getPattern();
-
-        if($pattern === null) {
-            $pattern = '^' . str_replace('/', '\\/', $this->getUrl(false)) . '$';
-        }
-
-        return (bool) preg_match('/'.$pattern.'/', Request::path());
+        return Request::is($this->getUrl(false));
     }
 
     /**
