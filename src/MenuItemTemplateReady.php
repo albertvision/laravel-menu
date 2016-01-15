@@ -68,11 +68,7 @@ class MenuItemTemplateReady {
         $attributes = $this->_item->getAttribute();
         $attributes['href'] = $this->getUrl();
 
-        foreach($mergeAttributes as $attrKey => $attrValue) {
-            $attributes[$attrKey] = $attrValue;
-        }
-
-        return Html::attributes($attributes);
+        return Html::attributes(array_merge($attributes, $mergeAttributes));
     }
 
     /**
