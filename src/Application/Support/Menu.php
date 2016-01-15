@@ -2,10 +2,10 @@
 
 use YGeorgiev\Menu\MenuBuilder;
 
-// Describe your menus here.
+/** @var YGeorgiev\Menu\Menu $menu */
+$menu = app(YGeorgiev\Menu\Menu::class);
 
-
-//Menu::create('test', function(MenuBuilder $builder) {
+//$menu->create('test', function(MenuBuilder $builder) {
 //    $builder->addItem('/', 'Home page');
 //    $builder->addItem('about-us', 'About us');
 //    $builder->addItem('contact-us', 'Contact us');

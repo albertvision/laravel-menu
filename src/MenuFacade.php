@@ -10,6 +10,6 @@ class MenuFacade extends Facade {
      * @return string
      */
     protected static function getFacadeAccessor() {
-        return MenuServiceProvider::getPackageName();
+        return 'menu';
     }
 }

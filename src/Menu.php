@@ -1,29 +1,17 @@
 <?php
 namespace YGeorgiev\Menu;
-use Illuminate\Contracts\View\Factory as View;
 
 /**
  * Class Menu
  *
  * @package YGeorgiev\Menu
  */
-class Menu {
-
-    /**
-     * Laravel's View Service
-     *
-     * @var View
-     */
-    protected $views;
-
+class Menu
+{
     /**
      * @var array
      */
     private $_menus = [];
-
-    public function __construct(View $view) {
-        $this->views = $view;
-    }
 
     /**
      * Create a new menu.
@@ -34,9 +22,10 @@ class Menu {
      * @return $this
      * @throws \Exception Menu item is already taken.
      */
-    public function create($name, \Closure $callback) {
-        if(isset($this->_menus[$name])) {
-            throw new \Exception('Menu name ['.$name.'] is already taken.');
+    public function create($name, \Closure $callback)
+    {
+        if (isset($this->_menus[$name])) {
+            throw new \Exception('Menu name [' . $name . '] is already taken.');
         }
 
         $this->_menus[$name] = new MenuBuilder();
@@ -54,9 +43,10 @@ class Menu {
      *
      * @return \Illuminate\View\View
      */
-    public function get($name, $view = 'menu::default') {
-        if(!$this->_menus[$name]) {
-            throw new \BadMethodCallException('Invalid menu name ['.$name.']');
+    public function get($name, $view = 'menu::default')
+    {
+        if (!isset($this->_menus[$name])) {
+            throw new \BadMethodCallException('Invalid menu name [' . $name . ']');
         }
 
         $data = $this->_menus[$name];
